@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         let attributedString = NSAttributedString(string: "Flips: \(flipcount)", attributes: attributes)
         flipCountLabel.attributedText = attributedString
     }
+    @IBAction func touchNewGame(_ sender: UIButton) {
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        updateViewFromModel()
+        flipcount = 0
+        updateFlipCountLabel()
+    }
     
     @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet {
@@ -65,14 +71,15 @@ class ViewController: UIViewController {
     }
     
     //private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
-    private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
+    //private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎🕷"
     
     private var emoji = [Card: String]()
     
     private func emoji(for card: Card) -> String {
-        if emoji[card] == nil, emojiChoices.count > 0 {
-            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
-            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
+        
+        if emoji[card] == nil, game.emojiChoices.count > 0 {
+            let randomStringIndex = game.emojiChoices.index(game.emojiChoices.startIndex, offsetBy: game.emojiChoices.count.arc4random)
+            emoji[card] = String(game.emojiChoices.remove(at: randomStringIndex))
             //print(card.identifier)
         }
 
