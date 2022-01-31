@@ -244,22 +244,31 @@
                                     <action selector="touchNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zhl-AA-ONk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-s3-WQl">
+                                <rect key="frame" x="133.5" y="690" width="147" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ar9-2g-E4W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5w6-tE-jkV" secondAttribute="bottom" constant="8" symbolic="YES" id="8XT-ay-aE0"/>
+                            <constraint firstItem="BtS-s3-WQl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5w6-tE-jkV" secondAttribute="bottom" constant="8" symbolic="YES" id="2Hk-ZC-Pul"/>
                             <constraint firstItem="5w6-tE-jkV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8ZL-jT-d8i"/>
                             <constraint firstItem="ayC-8r-tOH" firstAttribute="top" secondItem="Ar9-2g-E4W" secondAttribute="bottom" constant="8" symbolic="YES" id="Gbj-De-qbm"/>
                             <constraint firstItem="5w6-tE-jkV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Izn-UG-tuH"/>
                             <constraint firstItem="Ar9-2g-E4W" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="S7M-X8-amN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ayC-8r-tOH" secondAttribute="bottom" id="TeE-br-JQc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5w6-tE-jkV" secondAttribute="trailing" constant="20" id="ZQR-6h-CAs"/>
+                            <constraint firstItem="BtS-s3-WQl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cAS-YN-abM"/>
                             <constraint firstItem="ayC-8r-tOH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="d4I-U0-bYN"/>
+                            <constraint firstItem="Ar9-2g-E4W" firstAttribute="top" secondItem="BtS-s3-WQl" secondAttribute="bottom" constant="8" symbolic="YES" id="ekY-Lp-iuF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="ayC-8r-tOH" id="xYd-c1-EGF"/>
+                        <outlet property="scoreLabel" destination="BtS-s3-WQl" id="fAD-Lw-1b7"/>
                         <outletCollection property="cardButtons" destination="fES-HH-yRc" collectionClass="NSMutableArray" id="vcp-XD-fgg"/>
                         <outletCollection property="cardButtons" destination="COk-Wt-ew8" collectionClass="NSMutableArray" id="VRF-UO-xZk"/>
                         <outletCollection property="cardButtons" destination="lXM-hK-a8x" collectionClass="NSMutableArray" id="mbb-hF-HCB"/>

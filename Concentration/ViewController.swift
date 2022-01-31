@@ -15,10 +15,8 @@ class ViewController: UIViewController {
         return (cardButtons.count+1) / 2
     }
     
-    private(set) var flipcount = 0 {
-        didSet {
-            updateFlipCountLabel()
-        }
+    private func updateScoreLabel() {
+        scoreLabel.text = "Count: \(game.currentScore)"
     }
     
     private func updateFlipCountLabel() {
@@ -26,14 +24,19 @@ class ViewController: UIViewController {
             .strokeWidth : 5.0,
             .strokeColor : UIColor.orange
         ]
-        let attributedString = NSAttributedString(string: "Flips: \(flipcount)", attributes: attributes)
+        let attributedString = NSAttributedString(string: "Flips: \(game.flipCount)", attributes: attributes)
         flipCountLabel.attributedText = attributedString
     }
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     @IBAction func touchNewGame(_ sender: UIButton) {
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
         updateViewFromModel()
-        flipcount = 0
+        game.flipCount = 0
         updateFlipCountLabel()
+        game.currentScore = 0
+        updateScoreLabel()
     }
     
     @IBOutlet private weak var flipCountLabel: UILabel! {
@@ -45,7 +48,8 @@ class ViewController: UIViewController {
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction private func touchCard(_ sender: UIButton) {
-        flipcount += 1
+        game.flipCount += 1
+        updateFlipCountLabel()
         if let cardNumber = cardButtons.index(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
@@ -53,6 +57,7 @@ class ViewController: UIViewController {
         } else {
             print("chosen card was not in cardButtons")
         }
+        updateScoreLabel()
     }
     
     private func updateViewFromModel() {
